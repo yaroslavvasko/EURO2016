@@ -1,0 +1,598 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>EURO 2016</title>
+
+		<!-- M E T A -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+		<!-- S T Y L E S-->
+		<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+		<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+
+		<!-- F O N T S -->		
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,300,700,800,400,600' rel='stylesheet' type='text/css'>
+		
+		<!-- S C R I P T S -->
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/move-top.js"></script>
+		<script type="text/javascript" src="js/easing.js"></script>
+		<script src="js/wow.min.js"></script>
+		<script src="js/tab.js"></script>
+
+		<script type="application/x-javascript"> 
+			addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+		</script>
+		
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
+		
+		<script>
+		 	new WOW().init();
+		</script>
+
+	</head>
+
+	<body>
+		<!-- header -->
+		<div id="home" class="heder">
+			<!-- container -->
+			<div class="container">
+				<div class="header-top">
+					<div class="heder-logo">
+						<h1><a href="">EURO 2016</a></h1>
+					</div>
+					<div class="top-nav">
+					<span class="menu"><img src="images/menu.png" alt=""></span>
+						<ul class="nav1">
+							<li><a class="scroll" href="">Home</a></li>
+							<li><a class="scroll" href="#services">Teams</a></li>
+							<li><a class="scroll" href="#portfolio">Cgoups</a></li>
+							<li><a class="scroll" href="#matches">Matches</a></li>
+						</ul>
+						<!-- script-for-menu -->
+							 <script>
+							   $( "span.menu" ).click(function() {
+								 $( "ul.nav1" ).slideToggle( 300, function() {
+								 // Animation complete.
+								  });
+								 });
+							</script>
+						<!-- /script-for-menu -->
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+			<!-- container -->
+		</div>
+		<!-- header -->
+
+
+		<!-- banner -->
+		<div class="banner">
+			<!-- container -->
+			<div class="container">
+				<div class="header-text">
+					<div class="separator-200"></div>
+					<h2>Welcome to Euro 2016 informayional website</h2>
+					<p>Check out the latest news, goals and scores below</p>
+				</div>
+
+			</div>
+			<!-- container -->
+		</div>
+		<!-- banner -->
+
+		<!-- eru-banner -->
+		<div id="" class="euro-banner">
+
+		</div>
+		<!-- euro-banner -->
+
+		<!-- description -->
+		<div class="description">
+			<div class="container">
+				<div class="desc-text wow bounceIn" data-wow-delay="0.4s">
+					<h3>EURO 2016</h3>
+					<p>
+						The 2016 UEFA European Championship, commonly referred to as UEFA Euro 2016, is the 15th UEFA European Championship, the quadrennial international men's football championship of Europe organised by UEFA. It is currently being held in France from 10 June to 10 July 2016. Spain are the two-time defending champions, having won the 2008 and 2012 editions.
+					</p>
+					<p>
+						For the first time, the European Championship final tournament is being contested by 24 teams, having been expanded from the 16-team format used since 1996. Under this new format, the finalists will contest a group stage consisting of six groups of four teams, followed by a knockout stage including three rounds and the final. Nineteen teams – the top two from each of the nine qualifying groups and the best third-placed team – joined France, who qualified automatically as hosts; a series of two-legged play-off ties between the remaining third-placed teams in November 2015 decided the last four spots at the final tournament.
+					</p>
+					<p>
+						France was chosen as the host nation on 28 May 2010, after a bidding process in which they beat Italy and Turkey for the right to host the 2016 finals. The matches will be played in ten stadiums in ten cities: Bordeaux, Lens, Lille Metropole, Lyon, Marseille, Nice, Paris, Saint-Denis, Saint-Étienne, and Toulouse. It will be the third time that France hosts the tournament, after the inaugural tournament in 1960 and the 1984 finals. The French team have won the European Championship twice: in 1984 and 2000.
+					</p>
+					<div class="separator-20"></div>
+				</div>
+			</div>
+			
+		</div>
+		<!-- description -->
+
+		<!-- *********************************************************  Filling of teams with flags ****************** -->
+		<script type="text/javascript">
+			var root = 'http://api.football-data.org';
+
+
+			$.ajax({
+				headers: { 'X-Auth-Token': '130c27254d044be0afd1f7b891ba3cf9' },
+				url: root + '/v1/soccerseasons/424/teams',
+				dataType: 'json',
+				type: 'GET',
+			}).done(function(data) {
+				console.log(data);
+
+				var teams = data.teams;
+				console.log(teams);
+
+
+				for (i = 0; i < teams.length/2; i++) {
+					team = teams[i];
+					console.log(team);
+					var flag = document.createElement("img");
+					var name = document.createElement("p");
+					var t = document.createTextNode(team.name);
+					flag.src = team.crestUrl;
+					name.appendChild(flag);
+					name.appendChild(t);
+					document.getElementById('teams-1').appendChild(name);
+				}
+
+				for (i = teams.length/2; i < teams.length; i++) {
+					team = teams[i];
+					console.log(team);
+					var flag = document.createElement("img");
+					var name = document.createElement("p");
+					var t = document.createTextNode(team.name);
+					flag.src = team.crestUrl;
+					name.appendChild(flag);
+					name.appendChild(t);
+					document.getElementById('teams-2').appendChild(name);
+				}
+
+			});
+
+
+		</script>
+		
+		<!-- services -->
+		<div id="services" class="services">
+			<!-- container -->
+			<div class="container">
+				<div class="services-hedding wow bounceIn" data-wow-delay="0.4s">
+					<h3>Teams</h3>
+				</div>
+				<div class="col-md-6 teams-1" id="teams-1"></div>
+				<div class="col-md-6 teams-2" id="teams-2"></div>
+
+			</div>
+			<!-- container -->
+		</div>
+		<!-- services -->
+
+
+
+
+		<!-- ******************************************************** Filling of group tables ************************ -->
+		<script type="text/javascript">
+			var root = 'http://api.football-data.org';
+
+
+			$.ajax({
+				headers: { 'X-Auth-Token': '130c27254d044be0afd1f7b891ba3cf9' },
+				url: root + '/v1/soccerseasons/424/leagueTable',
+				dataType: 'json',
+				type: 'GET',
+			}).done(function(data) {
+				console.log(data);
+
+				var groups = data.standings;
+
+				var ga = groups.A;
+				var gb = groups.B;
+				var gc = groups.C;
+				var gd = groups.D;
+				var ge = groups.E;
+				var gf = groups.F;
+
+				var gs = [ga, gb, gc, gd, ge, gf];
+				for(i=0; i<gs.length; i++){
+					for(j=0; j<gs[i].length; j++){
+						console.log(gs[i][j]);
+
+						$("#tab"+i).append("<tr><td><p><img src="+gs[i][j].crestURI+">"+gs[i][j].team+"</p></td><td>"+gs[i][j].playedGames+"</td><td>"+gs[i][j].goals+"</td><td>"+gs[i][j].points+"</td></tr>");
+
+					}
+
+				}
+
+			});
+
+
+		</script>
+
+
+		<!-- works -->
+		<div id="portfolio" class="works">
+			<!-- container -->
+			<div class="container">
+				<div class="groups-text wow bounceIn" data-wow-delay="0.4s">
+					<h3>Groups</h3>
+				</div>
+
+				<ul class="nav nav-tabs">
+					<li class="active"><a data-toggle="pill" href="#group-a">Group A</a></li>
+					<li><a data-toggle="tab" href="#group-b">Group B</a></li>
+					<li><a data-toggle="tab" href="#group-c">Group C</a></li>
+					<li><a data-toggle="tab" href="#group-d">Group D</a></li>
+					<li><a data-toggle="tab" href="#group-e">Group E</a></li>
+					<li><a data-toggle="tab" href="#group-f">Group F</a></li>
+				</ul>
+
+				<div class="tab-content">
+
+					<div id="group-a" class="tab-pane fade in active">
+						<h3>Group A</h3>
+							<div class="col-md-8">
+								<table class="table" id="tab0">
+									<thead>
+									<tr>
+										<th>Team</th>
+										<th>Games</th>
+										<th>Goals</th>
+										<th>Points</th>
+									</tr>
+									</thead>
+								</table>
+							</div>
+
+
+					</div>
+					<div id="group-b" class="tab-pane fade">
+						<h3>Group B</h3>
+						<div class="col-md-8">
+							<table class="table" id="tab1">
+								<thead>
+								<tr>
+									<th>Team</th>
+									<th>Games</th>
+									<th>Goals</th>
+									<th>Points</th>
+								</tr>
+								</thead>
+							</table>
+						</div>
+
+					</div>
+					<div id="group-c" class="tab-pane fade">
+						<h3>Group C</h3>
+						<div class="col-md-8">
+							<table class="table" id="tab2">
+								<thead>
+								<tr>
+									<th>Team</th>
+									<th>Games</th>
+									<th>Goals</th>
+									<th>Points</th>
+								</tr>
+								</thead>
+							</table>
+						</div>
+
+					</div>
+					<div id="group-d" class="tab-pane fade">
+						<h3>Group D</h3>
+						<div class="col-md-8">
+							<table class="table" id="tab3">
+								<thead>
+								<tr>
+									<th>Team</th>
+									<th>Games</th>
+									<th>Goals</th>
+									<th>Points</th>
+								</tr>
+								</thead>
+							</table>
+						</div>
+
+					</div>
+					<div id="group-e" class="tab-pane fade">
+						<h3>Group E</h3>
+						<div class="col-md-8">
+							<table class="table" id="tab4">
+								<thead>
+								<tr>
+									<th>Team</th>
+									<th>Games</th>
+									<th>Goals</th>
+									<th>points</th>
+								</tr>
+								</thead>
+							</table>
+						</div>
+
+					</div>
+					<div id="group-f" class="tab-pane fade">
+						<h3>Group F</h3>
+						<div class="col-md-8">
+							<table class="table" id="tab5">
+								<thead>
+								<tr>
+									<th>Team</th>
+									<th>Games</th>
+									<th>Goals</th>
+									<th>Points</th>
+								</tr>
+								</thead>
+							</table>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+
+			</div>
+			<!-- container -->
+		</div>
+		<!-- works -->
+
+
+		<!-- works-bottom -->
+		<div class="work-bottom">
+			<!-- container -->
+			<div class="container">
+
+			</div>
+			<!-- container -->
+		</div>
+		<!-- works-bottom -->
+
+
+
+		<!-- ******************************************************* Filling matches tables **************************-->
+		<script type="text/javascript">
+			var root = 'http://api.football-data.org';
+
+
+			$.ajax({
+				headers: { 'X-Auth-Token': '130c27254d044be0afd1f7b891ba3cf9' },
+				url: root + '/v1/soccerseasons/424/fixtures',
+				dataType: 'json',
+				type: 'GET',
+			}).done(function(data) {
+				console.log(data);
+
+				var games = data.fixtures;
+
+				for(i=0; i<games.length; i++){
+
+					var score1 = "-";
+					if(games[i].result.goalsHomeTeam == null)
+					{
+						score1 = "-";
+					}
+					else
+					{
+						score1=games[i].result.goalsHomeTeam;
+					}
+
+					var score2 = "-";
+					if(games[i].result.goalsAwayTeam == null)
+					{
+						score2 = "-";
+					}
+					else
+					{
+						score2=games[i].result.goalsAwayTeam;
+					}
+
+					$("#matches"+games[i].matchday).append("<tr><td>"+games[i].homeTeamName+"</td><td>"+score1+"</td><td>"+score2+"</td><td>"+games[i].awayTeamName+"</td></tr>");
+				}
+
+			});
+
+
+		</script>
+		<!-- team -->
+		<div id="matches" class="our-team">
+			<!-- container -->
+			<div class="container">
+				<div class="team-hedding wow bounceIn" data-wow-delay="0.4s">
+					<h3>Matches</h3>
+				</div>
+
+				<ul class="nav nav-tabs">
+					<li class="active"><a data-toggle="pill" href="#week1">Week 1</a></li>
+					<li><a data-toggle="tab" href="#week2">Week 2</a></li>
+					<li><a data-toggle="tab" href="#week3">Week 3</a></li>
+					<li><a data-toggle="tab" href="#week4">1/8 Final</a></li>
+					<li><a data-toggle="tab" href="#week5">1/4 Final</a></li>
+					<li><a data-toggle="tab" href="#week6">Final</a></li>
+				</ul>
+
+				<div class="tab-content">
+
+					<div id="week1" class="tab-pane fade in active">
+						<h3>Week 1</h3>
+						<div class="col-md-8">
+							<table class="table" id="matches1">
+								<thead>
+								<tr>
+									<th>Home</th>
+									<th>Goals</th>
+									<th>Goals</th>
+									<th>Guest</th>
+								</tr>
+								</thead>
+							</table>
+						</div>
+
+
+					</div>
+					<div id="week2" class="tab-pane fade">
+						<h3>Week 2</h3>
+						<div class="col-md-8">
+							<table class="table" id="matches2">
+								<thead>
+								<tr>
+									<th>Home</th>
+									<th>Goals</th>
+									<th>Goals</th>
+									<th>Guest</th>
+								</tr>
+								</thead>
+							</table>
+						</div>
+
+					</div>
+					<div id="week3" class="tab-pane fade">
+						<h3>Week 3</h3>
+						<div class="col-md-8">
+							<table class="table" id="matches3">
+								<thead>
+								<tr>
+									<th>Home</th>
+									<th>Goals</th>
+									<th>Goals</th>
+									<th>Guest</th>
+								</tr>
+								</thead>
+							</table>
+						</div>
+
+					</div>
+					<div id="week4" class="tab-pane fade">
+						<h3>1/8 Final</h3>
+						<div class="col-md-8">
+							<table class="table" id="matches4">
+								<thead>
+								<tr>
+									<th>Home</th>
+									<th>Goals</th>
+									<th>Goals</th>
+									<th>Guest</th>
+								</tr>
+								</thead>
+							</table>
+						</div>
+
+					</div>
+					<div id="week5" class="tab-pane fade">
+						<h3>1/4 Final</h3>
+						<div class="col-md-8">
+							<table class="table" id="matches5">
+								<thead>
+								<tr>
+									<th>Home</th>
+									<th>Goals</th>
+									<th>Goals</th>
+									<th>Guest</th>
+								</tr>
+								</thead>
+							</table>
+						</div>
+
+					</div>
+					<div id="week6" class="tab-pane fade">
+						<h3>Final</h3>
+						<div class="col-md-8">
+							<table class="table" id="matches6">
+								<thead>
+								<tr>
+									<th>Home</th>
+									<th>Goals</th>
+									<th>Goals</th>
+									<th>Guest</th>
+								</tr>
+								</thead>
+							</table>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+			<!-- container -->
+		</div>
+		<!-- team -->
+
+		<!-- contact -->
+		<div id="contact" class="contact">
+			<!-- container -->
+			<div class="container">
+				<div class="contact-hedding wow bounceIn" data-wow-delay="0.4s">
+					<h3>Contact us</h3>
+				</div>
+				<p class="wow bounceIn" data-wow-delay="0.4s">
+					<span>yaroslav.vasko@gmail.com</span>
+				</p>
+				<div class="social-icons wow bounceIn" data-wow-delay="0.4s">
+					<ul>
+						<li class="twit"></li>
+						<li class="fb"></li>
+						<li class="google"></li>
+						<li class="youtube"></li>
+					</ul>
+				</div>
+				<div class="col-md-8 text-fields">
+					<div class="text-fields-left">
+						<div class="text-field-email">
+							<form>
+								<input type="text" class="text" value="EMAIL" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'EMAIL';}">
+							</form>
+							<div class="msg-img"></div>
+						</div>
+						<div class="text-field-name">
+							<form>
+								<input type="text" class="text" value="NAME" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'NAME';}">
+							</form>
+							<div class="user-img"></div>
+						</div>
+						<div class="clearfix"> </div>
+						<div class="text-field-area wow fadeInLeft">
+							<form>
+								<textarea value="MESSAGE:" onfocus="if(this.value == 'MESSAGE') this.value='';" onblur="if(this.value == '') this.value='MESSAGE';">MESSAGE</textarea>
+							</form>
+							<div class="pen-img"></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 text-fields">
+					<div class="text-fields-right wow fadeInRight">
+						<form>
+							<input type="submit" value="Submit">
+						</form>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<!-- container -->
+		</div>
+		<!-- contact -->
+		<!-- footer -->
+		<div class="footer">
+			<!-- container -->
+			<div class="container">
+				<a class="scroll" href="#home"><img src="images/up-arrow.png" alt="" /></a>
+			</div>
+			<!-- container -->
+		</div>
+		<!-- footer -->
+	</body>
+</html>
+
