@@ -87,7 +87,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="container">
 				<div class="header-text">
 					<div class="separator-200"></div>
-					<h2>Welcome to Euro 2016 informayional website</h2>
+					<h2>Welcome to Euro 2016 informational website</h2>
 					<p>Check out the latest news, goals and scores below</p>
 				</div>
 
@@ -129,6 +129,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 
 			$.ajax({
+				crossOrigin: true,
 				headers: { 'X-Auth-Token': '130c27254d044be0afd1f7b891ba3cf9' },
 				url: root + '/v1/soccerseasons/424/teams',
 				dataType: 'json',
